@@ -1,0 +1,64 @@
+------------------------------ SMOOTH SCROLLING ----------------------------------------
+
+
+---------------------------------- OLD WAY ----------------------------------------
+
+
+//* Select the button and section to which it points
+
+//* Add event listener to button
+
+//* Get the  x , y   coordinates of section and clicked button using  .getBoundingClientRect()
+
+//? getBoundingClientRect()  -> returns x,y,width,height,top,bottom,right  
+! x is measured from left of the screem  same as left
+! y is measured from top of the screen   same as top
+
+
+//* Get the current scroll position - scrollbar moved position
+
+//? window.scrollX  -> how much X scrollbar moved  
+//? window.scrollY  -> how much Y scrollbar moved
+
+--
+
+//* We can also read the height and width of viewport
+
+//? document.documentElement.clientHeight
+//? document.documentElement.clientWidth
+
+--
+
+//* Now in event listener function, add window.scrollTo() to scroll to that particular section
+
+//* Add the left , top to .scrollTo  from section's getBoundingClientRect()
+
+//? window.scrollTo( left , top )
+
+//* The exact location of section is  current position + current scroll
+!   left + scrollX      
+!   top  + scrollY
+
+//? window.scrollTo( left+scrollX , top+scrollY )
+
+
+//* Making it SMOOTH by passing an object to scrollTo() , with left,top,behavior properties
+
+//? window.scrollTo( {
+?
+?                     left     : left+scrollX , 
+?                     top      : top+scrollY  ,
+?                     behavior : 'smooth'
+?           
+?                    } )
+
+
+
+
+---------------------------------- MODERN WAY ----------------------------------------
+
+
+//* Select the section you want to scroll to and call scrollIntoView()
+//* and pass an object with behavior:'smooth'
+
+//? section.scrollIntoView( {behavior:'smooth'} )

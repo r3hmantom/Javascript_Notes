@@ -1,0 +1,67 @@
+element.style.backgroundColor = '#37383d'
+element.style.width = '120%'
+
+string should be the same as css value, mean inlcuding units,
+these styles are set as inline styles
+
+we can cannot read style using - element.style.height 
+because using style property only works for inline style, so we can only read inline styles , we cannot see style which is defined inside class
+
+we can still get the stylesheet styles using 
+getComputedStyle(element) 
+it returns a huge object that contains all properties and values
+getComputedStyle(element).color // etc 
+
+we can parse number from this string using Number.parseFloat(str) or Number.parseInt(str) 
+
+CSS CUSTOM PROPERTIES  /  CSS VARIABLES
+they are defined in the :root {}
+which is equivalent to document element in javascript
+
+document.documentElement.style.setProperty('name of custom property' , 'value that we want to set it into')
+
+we can do same for all properties
+
+ATTRIBUTES
+element.attributeName
+logo.src  // eg
+logo.alt // eg
+
+this works because when we specify attributes in html, javascript automatically creates these properties on the object , this only works if the element supports the attribute, because if we create random shit attribute on our html tag, javascript will not automatically create those properties
+
+also class attribute on html tag has the property as className for historical reasons
+
+to read that shit attribute that we defined, we can use getAttribute method on element
+
+logo.getAttribute('shitAttribute') 
+
+we can also set shit attribute using setAttribute() method on element
+
+logo.setAttribute('attribute name' , 'attribute valuet ')
+
+
+imp note ; when you get logo.src, what you get is absolute url
+while the url you defined in html is relative url 
+
+To get literal value of src , use getAttribute() method on element
+logo.getAttribute('src')
+
+same is true for href links, referrring to any html section
+
+SPECIAL TYPE OF ATTRIBUTES -- DATA ATTRIBUTES
+they start with data
+like data-version-number = "3.0" on html tag
+
+this attribute will be at 
+logo.dataset.versionNumber  // returns 3.0
+
+we normally use this when we need to store data in user interface
+
+
+-----------
+we can add,remove  multiple classes using classList.add/remove by passing multiple comma separated values
+
+we can also do this instead
+logo.className = 'jonas'  // don't use this, because this over writes all classes, and only allows to add one class
+
+logo.classList.contains('btn')  // not includes as in arrays  c = contains c= class
