@@ -1,0 +1,33 @@
+When an event happens on any element in the dom tree, the event is not generated at that element
+instead it is generated at the root of the document (at the very top of the dom tree)
+
+CAPTURING PHASE:
+and from here, the capturing phase happens, where the event then travels down from the top of the dom tree 
+it will travel through every single parent of that element
+
+
+
+TARGET PHASE:
+as soon as the event reaches the target element, the target phase begins 
+where the events can be handled right at the target and as we already know
+that we can handle this with event listeners, and the attatched callback function of event handler is called
+
+BUBBLING PHASE:
+After reaching the target, the event then actually travels all the way up to the document root again in the bubbling phase, so we say events bubble up from the target to document root 
+and just like the capturing phase, the event travels through every single parent of that element (not through any sibling elements)
+
+
+
+
+IMPORTANCE:
+It is important because, when the event is travelling through any of the parents, we can also handle the event in that parent, even though it's not the parent event , but since it's travelling through the parent(road) , so we can handle the event at that parent(road) and implement powerful patterns
+
+
+By default, events can only be handled in the target and in the bubbling phase, however we can configure event listeners in a way so they can also handle it in the capturing phase instead
+
+Also, not all types of events have capturing or bubbling phase, some of them are created right on the target element and so we can only handle them there
+
+-------------------------------------
+
+
+We can also call it as event propagation

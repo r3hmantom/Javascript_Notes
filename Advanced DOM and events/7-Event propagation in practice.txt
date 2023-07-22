@@ -1,0 +1,63 @@
+--------- EVENT PROPAGATION IN PRACTICE ----------------
+
+consider this element structure
+
+<section>
+    <nav>
+        <a href='#'>link</a>
+    </nav>
+</section>
+
+
+* Anchor
+a.addEventListener('click' , function(e){
+!   this.style.backgroundColor = randomColor()
+?   console.log(e.target)
+})
+
+* Nav
+nav.addEventListener('click' , function(e){
+!   this.style.backgroundColor = randomColor()
+?   console.log(e.target)
+
+})
+
+* Section
+section.addEventListener('click' , function(e){
+!   this.style.backgroundColor = randomColor()
+?   console.log(e.target)
+
+})
+
+
+Now, if I click on the  **Anchor** element, all of its parent element will also change color because of
+event bubbling, but if I console.log(e.target)  , it will only show  **Anchor** on which event was clicked
+
+
+
+e.target = where the event happened, not the element on which event handler was attatched
+
+e.currentTarget = where the current event is attached
+
+e.currentTarget  ===  this keyword in the handler function
+
+
+
+
+------------------ STOPPING EVENT PROPAGATION --------------------------
+
+call  e.stopPropagation()  in any handler function
+
+This will stop the event bubbling and event will not go back to its parent element
+
+
+
+
+------- CATCHING EVENTS IN CAPTURING PHASE ---------------
+when they are propgating down to the target element on which we clicked
+
+For this, we add third parameter to addEventListener function as true or false
+
+default is false
+
+true = event handler will no longer listen to bubbling events, but instead to capturing events
