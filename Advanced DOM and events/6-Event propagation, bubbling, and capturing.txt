@@ -29,5 +29,4 @@ Also, not all types of events have capturing or bubbling phase, some of them are
 
 -------------------------------------
 
-
 We can also call it as event propagation
